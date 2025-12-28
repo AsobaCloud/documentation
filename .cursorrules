@@ -1,0 +1,189 @@
+# Cursor AI Rules - Project Template
+
+**READ FIRST**: AI_CODING_GUIDELINES.md and CRITICAL_RULES.md
+
+## MANDATORY WORKFLOW - FOLLOW EXACTLY
+
+### 1. EXPLORE (Required First Step):
+- Read project documentation (README.md, docs/, etc.)
+- Use Cmd+Shift+F to search for existing similar functions/patterns
+- Identify what already exists that can be reused
+- Never create functions without searching first
+
+### 2. PLAN (Document Everything):
+- List exact files to modify
+- List exact functions to add/modify/delete
+- Explain minimal changes needed
+- Present in chat (Cmd+L) as structured plan
+
+### 3. CONFIRM (MANDATORY STOP POINT):
+- Present complete plan to user in chat
+- WAIT for explicit approval ("Yes", "Approved", "Proceed")
+- DO NOT use Cmd+K or write code without approval
+- This is NON-NEGOTIABLE
+
+### 4. CODE (Only After Approval):
+- Make ONLY the approved changes
+- Modify existing functions rather than creating duplicates
+- Maintain existing patterns and architecture
+
+### 5. VALIDATE (All Must Pass):
+```bash
+# Customize these commands for your project:
+npm test                    # Or your test command
+npm run lint                # Or your linter
+# Add project-specific validation here
+```
+- Fix ALL warnings before proceeding
+- Never ignore or bypass validation
+
+### 6. COMMIT (Only After Validation):
+- Use clear, descriptive commit messages
+- Follow project commit message conventions
+- Reference issue numbers if applicable
+
+## Six Critical Rules (ZERO TOLERANCE):
+
+### 1. EXPLORE BEFORE CODING
+- Use Cmd+Shift+F to search for existing functions
+- Read project documentation before starting
+- Find and reuse existing patterns
+
+### 2. PLAN THEN CONFIRM
+- Use Cmd+L chat to present plan
+- WAIT for approval before using Cmd+K
+- Show: files to modify, functions to change
+- MANDATORY STOP POINT
+
+### 3. NO DUPLICATE FUNCTIONS
+- Search codebase thoroughly first
+- Modify existing functions instead of creating new ones
+- Maintain single source of truth
+
+### 4. MINIMAL CHANGES ONLY
+- Make only necessary changes
+- Avoid over-engineering
+- Keep solutions simple and focused
+
+### 5. VALIDATE BEFORE COMMIT
+- Run all tests and linters
+- Address every warning
+- Never bypass validation
+
+### 6. CLEAR COMMIT MESSAGES
+- Follow project conventions
+- Reference issues/tickets if applicable
+- Be descriptive and concise
+
+## Cursor-Specific Workflow:
+
+### Before Using Cmd+K:
+1. Search for existing code: Cmd+Shift+F
+2. Open chat: Cmd+L
+3. Present plan with file/function lists
+4. Wait for user approval
+5. ONLY THEN use Cmd+K to implement
+
+### Example Plan Format in Chat:
+```
+PLAN - Awaiting Approval:
+
+Files to modify:
+- src/components/Button.tsx
+- src/utils/helpers.ts
+
+Functions to modify:
+- handleClick() - add error handling
+- formatDate() - support ISO format
+
+Changes:
+1. Add try/catch to handleClick
+2. Add ISO format support to formatDate
+3. Update tests for new functionality
+
+Do you approve? (Yes/No)
+```
+
+### When User Pastes Code:
+1. STOP - don't immediately suggest changes
+2. Ask clarifying questions about requirements
+3. Search for related existing code
+4. Present plan before modifying
+
+## Pre-Code Checklist:
+
+Before writing ANY code, answer:
+- [ ] Have I read project documentation?
+- [ ] Have I searched for existing functions?
+- [ ] What files will I modify?
+- [ ] What functions will I add/modify/delete?
+- [ ] Have I presented my plan and received approval?
+
+If any answer is "No" or "Unknown", STOP and complete that step.
+
+## Common Anti-Patterns to Avoid:
+
+❌ Using Cmd+K without planning first
+❌ Creating duplicate functions
+❌ Ignoring existing code patterns
+❌ Over-engineering solutions
+❌ Skipping validation/testing
+❌ Breaking existing functionality
+
+## Code Quality Standards:
+
+- No duplicate functions - modify existing ones
+- Consistent naming - follow established patterns
+- Proper error handling - use try/catch blocks
+- Clean code - avoid unnecessary complexity
+- Minimal changes - only what's necessary
+
+## Success Criteria:
+
+✅ Always search for existing code first
+✅ Present plan and get approval before coding
+✅ Minimal, focused changes
+✅ No duplicate functions
+✅ Tests/linters pass
+✅ Existing functionality preserved
+✅ Follows project conventions
+
+---
+
+**CRITICAL**: The CONFIRM step is MANDATORY. You MUST present your plan in chat and WAIT for approval before writing code.
+
+---
+
+## Customization Instructions
+
+### 1. Update Validation Commands (Step 5)
+Replace the placeholder commands with your actual project commands:
+```bash
+npm test && npm run lint           # Node.js project
+pytest && flake8                   # Python project
+cargo test && cargo clippy         # Rust project
+go test ./... && golangci-lint run # Go project
+```
+
+### 2. Add Issue Tracking Format (Step 6)
+If your project uses issue tracking:
+```bash
+# GitHub: "fix: description (#123)"
+# Jira: "feat: description (PROJ-456)"
+# Linear: "fix: description (ABC-123)"
+```
+
+### 3. Add Project-Specific Rules
+Add any project-specific requirements below:
+
+---
+
+## Project-Specific Additions
+
+[Add custom rules here]
+
+Example:
+- Always update CHANGELOG.md when adding features
+- Run database migrations after schema changes
+- Update API documentation when adding endpoints
+- Use conventional commits: type(scope): description

@@ -1,0 +1,96 @@
+#!/bin/bash
+# Pre-commit hook - Runs validation checks before allowing commit
+#
+# CUSTOMIZATION REQUIRED:
+# Replace the validation commands below with your project-specific commands
+
+echo "Running pre-commit validation checks..."
+
+# ============================================
+# CUSTOMIZE THESE COMMANDS FOR YOUR PROJECT
+# ============================================
+
+# Example for Node.js/JavaScript project:
+# if [ -f package.json ]; then
+#     echo "→ Running tests..."
+#     if ! npm test; then
+#         echo "❌ Tests failed"
+#         exit 1
+#     fi
+#     echo "✅ Tests passed"
+#
+#     echo "→ Running linter..."
+#     if ! npm run lint; then
+#         echo "❌ Linter failed"
+#         exit 1
+#     fi
+#     echo "✅ Linter passed"
+# fi
+
+# Example for Python project:
+# if [ -f requirements.txt ] || [ -f pyproject.toml ]; then
+#     echo "→ Running tests..."
+#     if ! pytest; then
+#         echo "❌ Tests failed"
+#         exit 1
+#     fi
+#     echo "✅ Tests passed"
+#
+#     echo "→ Running linter..."
+#     if ! flake8 .; then
+#         echo "❌ Linter failed"
+#         exit 1
+#     fi
+#     echo "✅ Linter passed"
+# fi
+
+# Example for Rust project:
+# if [ -f Cargo.toml ]; then
+#     echo "→ Running tests..."
+#     if ! cargo test; then
+#         echo "❌ Tests failed"
+#         exit 1
+#     fi
+#     echo "✅ Tests passed"
+#
+#     echo "→ Running clippy..."
+#     if ! cargo clippy -- -D warnings; then
+#         echo "❌ Clippy failed"
+#         exit 1
+#     fi
+#     echo "✅ Clippy passed"
+# fi
+
+# Example for Go project:
+# if [ -f go.mod ]; then
+#     echo "→ Running tests..."
+#     if ! go test ./...; then
+#         echo "❌ Tests failed"
+#         exit 1
+#     fi
+#     echo "✅ Tests passed"
+#
+#     echo "→ Running linter..."
+#     if ! golangci-lint run; then
+#         echo "❌ Linter failed"
+#         exit 1
+#     fi
+#     echo "✅ Linter passed"
+# fi
+
+# ============================================
+# ADD YOUR PROJECT-SPECIFIC CHECKS HERE
+# ============================================
+
+# Uncomment and customize:
+# echo "→ Running [your validation tool]..."
+# if ! [your-command]; then
+#     echo "❌ [validation] failed"
+#     exit 1
+# fi
+# echo "✅ [validation] passed"
+
+# ============================================
+
+echo "✅ All pre-commit checks passed"
+exit 0

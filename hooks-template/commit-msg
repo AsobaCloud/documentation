@@ -1,0 +1,88 @@
+#!/bin/bash
+# Commit message hook - Enforces commit message format
+#
+# CUSTOMIZATION OPTIONS:
+# 1. Require issue/ticket references (GitHub, Jira, Linear, etc.)
+# 2. Enforce conventional commit format (feat:, fix:, docs:, etc.)
+# 3. Both of the above
+# 4. Custom format
+
+commit_msg=$(cat "$1")
+
+# ============================================
+# OPTION 1: Require Issue Reference
+# ============================================
+
+# Uncomment to require GitHub issue reference (#123):
+# if ! echo "$commit_msg" | grep -qE '\(#[0-9]+\)'; then
+#     echo "❌ ERROR: Commit message must reference a GitHub issue"
+#     echo "   Format: 'type: description (#123)'"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# Uncomment to require Jira ticket reference (PROJ-123):
+# if ! echo "$commit_msg" | grep -qE '\([A-Z]+-[0-9]+\)'; then
+#     echo "❌ ERROR: Commit message must reference a Jira ticket"
+#     echo "   Format: 'type: description (PROJ-123)'"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# Uncomment to require Linear issue reference (ABC-123):
+# if ! echo "$commit_msg" | grep -qE '\([A-Z]+-[0-9]+\)'; then
+#     echo "❌ ERROR: Commit message must reference a Linear issue"
+#     echo "   Format: 'type: description (ABC-123)'"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# ============================================
+# OPTION 2: Enforce Conventional Commit Format
+# ============================================
+
+# Uncomment to require conventional commit format (feat:, fix:, etc.):
+# if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+'; then
+#     echo "❌ ERROR: Commit message must follow conventional commit format"
+#     echo "   Format: 'type(scope): description'"
+#     echo "   Types: feat, fix, docs, style, refactor, test, chore"
+#     echo "   Example: 'feat(auth): add password reset functionality'"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# ============================================
+# OPTION 3: Both Issue Reference AND Conventional Format
+# ============================================
+
+# Uncomment to require BOTH conventional format AND GitHub issue:
+# if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+ \(#[0-9]+\)'; then
+#     echo "❌ ERROR: Commit message must follow conventional format with GitHub issue"
+#     echo "   Format: 'type(scope): description (#123)'"
+#     echo "   Example: 'feat(auth): add password reset (#456)'"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# ============================================
+# OPTION 4: Custom Format
+# ============================================
+
+# Add your custom validation here:
+# if ! echo "$commit_msg" | grep -qE 'your-regex-pattern'; then
+#     echo "❌ ERROR: Your custom error message"
+#     echo "   Your message: $commit_msg"
+#     exit 1
+# fi
+
+# ============================================
+# DEFAULT: No enforcement (remove when customized)
+# ============================================
+
+echo "⚠️  WARNING: commit-msg hook is not configured"
+echo "   Edit hooks-template/commit-msg to enforce commit message format"
+echo "   See comments in the file for examples"
+
+# ============================================
+
+exit 0
